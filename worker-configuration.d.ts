@@ -4,7 +4,6 @@
 declare namespace Cloudflare {
 	interface Env {
 		KV: KVNamespace;
-		NUXT_SITE_TOKEN: string;
 		NUXT_CF_ACCOUNT_ID: string;
 		NUXT_CF_API_TOKEN: string;
 		R2: R2Bucket;
@@ -18,7 +17,7 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };
 declare namespace NodeJS {
-	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "NUXT_SITE_TOKEN" | "NUXT_CF_ACCOUNT_ID" | "NUXT_CF_API_TOKEN">> {}
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "NUXT_CF_ACCOUNT_ID" | "NUXT_CF_API_TOKEN">> {}
 }
 
 // Begin runtime types

@@ -2,19 +2,7 @@ import { LinkSchema } from '#shared/schemas/link'
 
 defineRouteMeta({
   openAPI: {
-    $global: {
-      components: {
-        securitySchemes: {
-          bearerAuth: {
-            type: 'http',
-            scheme: 'bearer',
-            description: 'Use NUXT_SITE_TOKEN as the bearer token',
-          },
-        },
-      },
-    },
     description: 'Create a new short link',
-    security: [{ bearerAuth: [] }],
     requestBody: {
       required: true,
       content: {

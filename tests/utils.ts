@@ -4,13 +4,7 @@ import { expect } from 'vitest'
 import { LINK_PASSWORD_HASH_PREFIX, LINK_PASSWORD_MASK_PREFIX } from '../shared/utils/link-password'
 
 export function fetchWithAuth(path: string, options?: RequestInit): Promise<Response> {
-  return SELF.fetch(`http://localhost${path}`, {
-    ...options,
-    headers: {
-      ...options?.headers,
-      Authorization: `Bearer ${import.meta.env.NUXT_SITE_TOKEN}`,
-    },
-  })
+  return SELF.fetch(`http://localhost${path}`, options)
 }
 
 export function fetch(path: string, options?: RequestInit): Promise<Response> {

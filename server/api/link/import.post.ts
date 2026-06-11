@@ -5,7 +5,6 @@ import { nanoid } from '#shared/schemas/link'
 defineRouteMeta({
   openAPI: {
     description: 'Import links from exported data',
-    security: [{ bearerAuth: [] }],
     requestBody: {
       required: true,
       content: {

@@ -7,7 +7,6 @@ import { stripCodeFence } from '../../utils/ai'
 defineRouteMeta({
   openAPI: {
     description: 'Generate OpenGraph title and description using AI based on the URL',
-    security: [{ bearerAuth: [] }],
     parameters: [
       {
         name: 'url',

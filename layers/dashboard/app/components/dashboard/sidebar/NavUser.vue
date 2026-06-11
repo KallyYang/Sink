@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronsUpDown, LogOut } from 'lucide-vue-next'
+import { ChevronsUpDown } from 'lucide-vue-next'
 import { useSidebar } from '@/components/ui/sidebar'
 
 interface User {
@@ -22,11 +22,6 @@ const user = computed<User>(() => ({
   email: `root@${hostname.value}`,
   avatar: '/sink.png',
 }))
-
-function logOut() {
-  localStorage.removeItem('SinkSiteToken')
-  navigateTo('/dashboard/login')
-}
 </script>
 
 <template>
@@ -74,37 +69,6 @@ function logOut() {
               </div>
             </div>
           </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <AlertDialog>
-            <AlertDialogTrigger as-child>
-              <DropdownMenuItem
-                class="cursor-pointer"
-                @select.prevent
-              >
-                <LogOut class="mr-2 h-4 w-4" />
-                {{ $t('logout.action') }}
-              </DropdownMenuItem>
-            </AlertDialogTrigger>
-            <AlertDialogContent
-              class="
-                max-h-[95svh] max-w-[95svw] grid-rows-[auto_minmax(0,1fr)_auto]
-                md:max-w-lg
-              "
-            >
-              <AlertDialogHeader>
-                <AlertDialogTitle>{{ $t('logout.title') }}</AlertDialogTitle>
-                <AlertDialogDescription>
-                  {{ $t('logout.confirm') }}
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>{{ $t('common.cancel') }}</AlertDialogCancel>
-                <AlertDialogAction @click="logOut">
-                  {{ $t('logout.action') }}
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
         </DropdownMenuContent>
       </DropdownMenu>
     </SidebarMenuItem>

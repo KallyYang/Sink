@@ -19,7 +19,6 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   runtimeConfig: {
-    siteToken: process.env.NUXT_SITE_TOKEN || crypto.randomUUID(),
     redirectStatusCode: '301',
     linkCacheTtl: 60,
     redirectWithQuery: false,
@@ -43,9 +42,6 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/': {
-      prerender: true,
-    },
     '/api/**': {
       cors: process.env.NUXT_API_CORS === 'true',
     },

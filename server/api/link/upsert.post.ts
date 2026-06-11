@@ -3,7 +3,6 @@ import { LinkSchema } from '#shared/schemas/link'
 defineRouteMeta({
   openAPI: {
     description: 'Create or update a short link (upsert)',
-    security: [{ bearerAuth: [] }],
     requestBody: {
       required: true,
       content: {
